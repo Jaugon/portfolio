@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaugon - Personal Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Arial:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+</head>
+<body>
+    <div class="scroll-progress"></div>
+    <nav>
+        <a href="#" class="logo">Jaugon</a>
+        <div class="nav-links">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+        <button class="menu-toggle" aria-label="Toggle Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+    
+    <main>
+        <section id="home" class="hero section">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="typing-text"></h1>
+                    <p class="subtitle" data-aos="fade-up" data-aos-delay="200">Data Engineer</p>
+                    <div class="social-links">
+                        <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/yourusername" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="mailto:your.email@example.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator" onclick="scrollToNextSection('home')">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </section>
+        
+        <section id="about" class="about section">
+            <div class="container">
+                <h2 data-aos="fade-up">About Me</h2>
+                
+                <!-- Bio Section -->
+                <div class="bio-section">
+                    <div class="bio-content" data-aos="fade-right">
+                        <div class="profile-image">
+                            <img src="https://via.placeholder.com/300" alt="Jaugon">
+                        </div>
+                        <div class="bio-text">
+                            <p>Hi there! I'm a passionate Data Engineer with a keen eye for design. I love creating beautiful and functional web applications that solve real-world problems.</p>
+                            <p>With a strong background in data engineering and web development, I specialize in building scalable solutions that make a difference.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills Section -->
+                <div class="skills-section">
+                    <h3 data-aos="fade-up">Technical Skills</h3>
+                    <div class="skills-grid">
+                        <div class="skill-category" data-aos="fade-up">
+                            <h4>Data Engineering</h4>
+                            <div class="skill-items">
+                                <div class="skill-item" data-level="95%">
+                                    <span class="skill-name">Python</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-level"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item" data-level="90%">
+                                    <span class="skill-name">SQL</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-level"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item" data-level="85%">
+                                    <span class="skill-name">Apache Spark</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-level"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+                            <h4>Web Development</h4>
+                            <div class="skill-items">
+                                <div class="skill-item" data-level="88%">
+                                    <span class="skill-name">HTML/CSS</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-level"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item" data-level="82%">
+                                    <span class="skill-name">JavaScript</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-level"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item" data-level="78%">
+                                    <span class="skill-name">React</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-level"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certifications Section -->
+                <div class="cert-section">
+                    <h3 data-aos="fade-up">Professional Certifications</h3>
+                    <div class="cert-grid">
+                        <div class="cert-card" data-aos="fade-up">
+                            <img src="assets/images/aws-cert.png" alt="AWS Certification">
+                            <h4>AWS Solutions Architect</h4>
+                            <p>Professional</p>
+                        </div>
+                        <div class="cert-card" data-aos="fade-up" data-aos-delay="100">
+                            <img src="assets/images/azure-cert.png" alt="Azure Certification">
+                            <h4>Azure Data Engineer</h4>
+                            <p>Associate</p>
+                        </div>
+                    </div>
+                    <a href="certifications.html" class="view-all-certs" data-aos="fade-up" data-aos-delay="200">
+                        View All Certifications
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="projects" class="projects section">
+            <div class="container">
+                <h2 data-aos="fade-up">My Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                        <h3>Project 1</h3>
+                        <p>Description of project 1. This is a brief overview of what the project is about.</p>
+                        <a href="#" class="btn">View Project <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                        <h3>Project 2</h3>
+                        <p>Description of project 2. This is a brief overview of what the project is about.</p>
+                        <a href="#" class="btn">View Project <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                        <h3>Project 3</h3>
+                        <p>Description of project 3. This is a brief overview of what the project is about.</p>
+                        <a href="#" class="btn">View Project <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact" class="contact section">
+            <div class="container">
+                <h2 data-aos="fade-up">Get in Touch</h2>
+                <form id="contact-form" data-aos="fade-up">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    
+    <button id="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-social">
+                <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/yourusername" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://twitter.com/yourusername" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com/yourusername" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2024 Jaugon. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

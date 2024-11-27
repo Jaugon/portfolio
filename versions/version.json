@@ -1,0 +1,13 @@
+{
+  "version": "1.1.0",
+  "lastUpdated": "2024-01-07",
+  "description": "Unified dark theme with neon red accents, improved spacing and removed borders",
+  "changes": [
+    "Implemented pure black background throughout all sections",
+    "Added neon red accents for buttons and interactive elements",
+    "Removed borders between sections for smoother appearance",
+    "Fixed spacing issues and improved overall layout",
+    "Enhanced theme toggle with sliding animation",
+    "Improved text contrast with white text on dark background"
+  ]
+}

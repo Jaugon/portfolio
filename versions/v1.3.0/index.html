@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaugon - Personal Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Arial:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+</head>
+<body>
+    <nav>
+        <a href="#" class="logo">Jaugon</a>
+        <div class="nav-links">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main>
+        <section id="home" class="hero section">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="typing-text"></h1>
+                    <p class="subtitle" data-aos="fade-up" data-aos-delay="200">Data Engineer</p>
+                    <div class="social-links">
+                        <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/yourusername" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="mailto:your.email@example.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator" onclick="scrollToNextSection('home')">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </section>
+        
+        <section id="about" class="about section">
+            <div class="container">
+                <h2 data-aos="fade-up">About Me</h2>
+                <div class="about-content">
+                    <div class="profile-image" data-aos="fade-right">
+                        <img src="https://via.placeholder.com/300" alt="Jaugon">
+                    </div>
+                    <div class="about-text" data-aos="fade-left">
+                        <p>Hi there! I'm a passionate Data Engineer with a keen eye for design. I love creating beautiful and functional web applications that solve real-world problems.</p>
+                        <div class="skills">
+                            <h3>My Skills</h3>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">HTML/CSS</span>
+                                    <span class="skill-percentage">90%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">JavaScript</span>
+                                    <span class="skill-percentage">85%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">React</span>
+                                    <span class="skill-percentage">80%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Node.js</span>
+                                    <span class="skill-percentage">75%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="projects" class="projects section">
+            <div class="container">
+                <h2 data-aos="fade-up">My Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                        <h3>Project 1</h3>
+                        <p>Description of project 1. This is a brief overview of what the project is about.</p>
+                        <a href="#" class="btn">View Project <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                        <h3>Project 2</h3>
+                        <p>Description of project 2. This is a brief overview of what the project is about.</p>
+                        <a href="#" class="btn">View Project <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                        <h3>Project 3</h3>
+                        <p>Description of project 3. This is a brief overview of what the project is about.</p>
+                        <a href="#" class="btn">View Project <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact" class="contact section">
+            <div class="container">
+                <h2 data-aos="fade-up">Get in Touch</h2>
+                <form id="contact-form" data-aos="fade-up">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-social">
+                <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/yourusername" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://twitter.com/yourusername" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com/yourusername" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2024 Jaugon. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
