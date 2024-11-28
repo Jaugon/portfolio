@@ -416,7 +416,7 @@ section {
 
 #home {
     padding-top: 70px;
-    min-height: calc(100vh - 70px);
+    height: 100vh; /* Changed from min-height to exact height */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -583,13 +583,15 @@ header {
     background: rgba(10, 25, 47, 0.5);
     border: 1px solid rgba(100, 255, 218, 0.1);
     color: var(--text-color);
+    border-radius: 4px;
+    font-size: 1rem;
     font-family: var(--font-body);
 }
 
 #contact-form input:focus,
 #contact-form textarea:focus {
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px var(--primary-color-transparent);
+    box-shadow: 0 0 10px rgba(255, 23, 68, 0.3);
 }
 
 /* Footer with tech style */
@@ -820,7 +822,7 @@ section {
 
 #home {
     padding-top: 70px;
-    min-height: calc(100vh - 70px);
+    height: 100vh; /* Changed from min-height to exact height */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1755,10 +1757,11 @@ section:first-of-type {
 
 #home {
     position: relative;
-    min-height: calc(100vh - 70px);
+    height: 100vh; /* Changed from min-height to exact height */
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0; /* Remove padding */
 }
 
 .hero-content {
@@ -2558,7 +2561,7 @@ img.loaded {
 
 #home {
     position: relative;
-    min-height: 100vh;
+    height: 100vh; /* Changed from min-height to exact height */
     overflow: hidden;
 }
 
@@ -2574,4 +2577,31 @@ img.loaded {
 #home .container {
     position: relative;
     z-index: 2;
+}
+
+.scroll-down-btn {
+    position: fixed; /* Change to fixed */
+    bottom: 30px; /* Increase bottom distance */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100; /* Increase z-index */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: float 2s ease-in-out infinite;
+    background: rgba(0, 0, 0, 0.5); /* Add semi-transparent background */
+    padding: 10px; /* Add padding */
+    border-radius: 50%; /* Make it circular */
+}
+
+.scroll-down-btn:hover {
+    transform: translateX(-50%) scale(1.1);
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-10px);
+    }
 }

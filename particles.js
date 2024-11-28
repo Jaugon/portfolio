@@ -4,7 +4,7 @@ class ParticleSystem {
         this.mouse = { x: 0, y: 0 };
         this.particlesData = [];
         this.shootingStars = [];
-        this.particleCount = 2500; // More particles for stars
+        this.particleCount = 3250; // Adjusted star count
         this.lastShootingStarTime = 0;
         this.init();
     }
@@ -79,17 +79,17 @@ class ParticleSystem {
             positions[i3 + 2] = (Math.random() - 0.5) * 1000;
             
             // Vary star sizes
-            scales[i] = Math.random() * 3.0;
-            opacities[i] = Math.random();
+            scales[i] = Math.random() * 2.5;
+            opacities[i] = 0.7 + Math.random() * 0.3; // More consistent brightness
 
             this.particlesData.push({
                 velocity: new THREE.Vector3(
-                    (Math.random() - 0.5) * 0.2,
-                    (Math.random() - 0.5) * 0.2,
+                    (Math.random() - 0.5) * 0.1, // Reduced movement speed
+                    (Math.random() - 0.5) * 0.1,
                     0
                 ),
                 originalScale: scales[i],
-                twinkleSpeed: Math.random() * 0.1
+                twinkleSpeed: Math.random() * 0.05 // Reduced twinkling speed
             });
         }
 
@@ -242,7 +242,7 @@ class ParticleSystem {
             positions[ix + 1] += particleData.velocity.y;
 
             // Twinkle effect
-            scales[i] = particleData.originalScale * (0.8 + Math.sin(time * particleData.twinkleSpeed) * 0.4);
+            scales[i] = particleData.originalScale * (0.9 + Math.sin(time * particleData.twinkleSpeed) * 0.2); // Reduced twinkle intensity
 
             // Wrap around edges
             if (positions[ix] < -1000) positions[ix] = 1000;
