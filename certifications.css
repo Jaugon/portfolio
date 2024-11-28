@@ -283,6 +283,22 @@
     }
 }
 
+/* Remove borders between sections */
+.certifications-page section {
+    border-bottom: none;
+}
+
+/* Override section styles for certifications page */
+.certifications-page section {
+    background: var(--background-color);
+    margin: 0;
+    padding: 4rem 0;
+}
+
+.certifications-page section:nth-child(even) {
+    background: var(--background-color);
+}
+
 /* Section Background Glows */
 #aws.cert-section {
     position: relative;
@@ -381,32 +397,4 @@
     .certifications-page .footer-social a {
         font-size: 1.3rem;
     }
-}
-    padding: 0 2rem;
-    text-align: center;
-}
-
-.certifications-page .footer-social {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-.certifications-page .footer-social a {
-    color: var(--text-color);
-    font-size: 1.5rem;
-    transition: all 0.3s ease;
-}
-
-.certifications-page .footer-social a:hover {
-    color: var(--primary-color);
-    transform: translateY(-3px);
-}
-
-.certifications-page .footer-copyright {
-    color: var(--text-color);
-    opacity: 0.7;
-    font-size: 0.9rem;
-    font-family: var(--font-body);
 }
