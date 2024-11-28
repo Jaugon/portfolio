@@ -28,8 +28,6 @@ build/
 *.log
 
 # Images and media files
-images/*
-!images/.gitkeep
 *.jpg
 *.jpeg
 *.png
@@ -37,6 +35,3 @@ images/*
 *.ico
 *.svg
 *.webp
-
-# Keep specific images if needed
-# !images/logo.png
