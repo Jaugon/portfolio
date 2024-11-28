@@ -1,5 +1,0 @@
-- apartados certificaciones
-- foto perfil
-- cambio de color entre sección que no sea de golpe si no algo más gradual con mismos colores (se lía con el css y el gradiant)
-- efecto humo rojo en la pantalla principal al menos? que reaccione al cursor?
-- cuando acaba la tanda de al animación de escribir hace una cosa rara los textos
