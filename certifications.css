@@ -131,34 +131,135 @@
     transform: translate(2px, -2px);
 }
 
-/* AWS Section Specific Styles */
+/* Vendor Header Styles */
+.vendor-header {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    margin-bottom: 4rem;
+    padding: 2rem 0;
+    position: relative;
+}
+
+.vendor-header .vendor-logo {
+    height: 130px;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(0.95) drop-shadow(0 0 20px rgba(0,0,0,0.3));
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.vendor-header:hover .vendor-logo {
+    filter: brightness(1.1) drop-shadow(0 0 40px rgba(255,255,255,0.25));
+    transform: scale(1.2) translateY(-8px);
+}
+
+.vendor-header h2 {
+    margin: 0;
+    font-size: 2.5rem;
+    color: var(--text-color);
+    font-family: var(--font-display);
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+    letter-spacing: 1px;
+}
+
+.vendor-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    transition: all 0.4s ease;
+}
+
+.vendor-header:hover h2::after {
+    width: 140px;
+    filter: brightness(1.2);
+}
+
+/* AWS specific styles */
+#aws .vendor-header h2::after {
+    background: #FF9900;
+    box-shadow: 0 0 10px rgba(255, 153, 0, 0.6);
+}
+
+#aws .vendor-logo {
+    filter: brightness(0.95) drop-shadow(0 0 25px rgba(255, 153, 0, 0.15));
+    height: 140px;
+}
+
+#aws .vendor-header:hover .vendor-logo {
+    filter: brightness(1.1) drop-shadow(0 0 50px rgba(255, 153, 0, 0.4));
+}
+
 #aws .cert-card {
     border: 1px solid rgba(255, 153, 0, 0.1);
 }
 
 #aws .cert-card:hover {
-    box-shadow: 0 0 20px rgba(255, 153, 0, 0.2);
     border-color: #FF9900;
+    box-shadow: 0 5px 15px rgba(255, 153, 0, 0.1);
 }
 
-#aws .cert-level,
-#aws .cert-verify {
-    color: #FF9900;
+/* Azure specific styles */
+#azure .vendor-header h2::after {
+    background: #008AD7;
+    box-shadow: 0 0 10px rgba(0, 138, 215, 0.6);
 }
 
-/* Azure Section Specific Styles */
+#azure .vendor-logo {
+    height: 120px;
+    filter: brightness(0.95) drop-shadow(0 0 25px rgba(0, 138, 215, 0.15));
+}
+
+#azure .vendor-header:hover .vendor-logo {
+    filter: brightness(1.1) drop-shadow(0 0 50px rgba(0, 138, 215, 0.4));
+}
+
 #azure .cert-card {
     border: 1px solid rgba(0, 138, 215, 0.1);
 }
 
 #azure .cert-card:hover {
-    box-shadow: 0 0 20px rgba(0, 138, 215, 0.2);
     border-color: #008AD7;
+    box-shadow: 0 5px 15px rgba(0, 138, 215, 0.1);
 }
 
-#azure .cert-level,
-#azure .cert-verify {
-    color: #008AD7;
+@media (max-width: 768px) {
+    .vendor-header {
+        gap: 2.5rem;
+        margin-bottom: 3rem;
+        padding: 1.5rem 0;
+    }
+
+    .vendor-header .vendor-logo {
+        height: 90px;
+    }
+
+    #aws .vendor-logo {
+        height: 100px;
+    }
+
+    #azure .vendor-logo {
+        height: 85px;
+    }
+
+    .vendor-header h2 {
+        font-size: 2rem;
+    }
+
+    .vendor-header h2::after {
+        height: 2px;
+        width: 80px;
+    }
+
+    .vendor-header:hover h2::after {
+        width: 110px;
+    }
 }
 
 /* Footer Styles for Certifications Page */
