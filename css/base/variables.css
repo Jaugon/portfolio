@@ -1,0 +1,25 @@
+:root {
+    /* Colors */
+    --primary-color: #64ffda;
+    --bg-color: #0a192f;
+    --text-color: #8892b0;
+    --heading-color: #ccd6f6;
+    --card-bg: #112240;
+    --nav-bg: rgba(10, 25, 47, 0.85);
+    
+    /* Typography */
+    --font-sans: 'Plus Jakarta Sans', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-heading: 'Outfit', sans-serif;
+    
+    /* Spacing */
+    --section-padding: 100px 0;
+    --container-padding: 0 20px;
+    
+    /* Transitions */
+    --transition: all 0.3s ease;
+    
+    /* Z-indices */
+    --z-nav: 1000;
+    --z-modal: 2000;
+}

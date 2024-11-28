@@ -1,0 +1,153 @@
+@import '../base/variables.css';
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 0 2rem;
+    background: transparent;
+    overflow: hidden;
+    margin-top: 70px;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255, 23, 68, 0.1) 0%, transparent 70%);
+    z-index: 0;
+    transform: translateZ(-1px) scale(2);
+    transform-origin: center;
+    transition: transform 0.3s ease-out;
+}
+
+.hero-content {
+    text-align: center;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 1.5rem;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 0.8rem;
+    color: var(--primary-color);
+    font-family: var(--font-display);
+    text-shadow: var(--neon-text-glow);
+}
+
+.hero .subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: var(--text-color);
+    opacity: 0.9;
+    line-height: 1.5;
+    margin: 0;
+    font-family: var(--font-body);
+}
+
+.hero .typing-container {
+    height: 4.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.hero .typing-text {
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+    min-height: 1.2em;
+    font-weight: bold;
+    display: inline-block;
+    position: relative;
+    white-space: nowrap;
+    line-height: 1.2;
+    margin: 0;
+    font-family: var(--font-mono);
+}
+
+.hero .typing-text::after {
+    content: '|';
+    position: absolute;
+    top: 0;
+    margin-left: 4px;
+    animation: blink 0.7s infinite;
+    height: 100%;
+    line-height: inherit;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    animation: bounce 2s infinite;
+    color: var(--primary-color);
+    text-shadow: var(--neon-text-glow);
+    font-size: 2rem;
+    z-index: 10;
+    margin-top: auto;
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 0.8rem;
+    position: relative;
+}
+
+.social-links a {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1200px) {
+    .hero h1,
+    .hero .typing-text {
+        font-size: 3rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .hero h1,
+    .hero .typing-text {
+        font-size: 2.5rem;
+    }
+
+    .hero .subtitle {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hero h1,
+    .hero .typing-text {
+        font-size: 2rem;
+    }
+
+    .hero {
+        padding: 0 1rem;
+    }
+}
