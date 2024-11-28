@@ -381,6 +381,79 @@ const initModernScrolling = () => {
     });
 };
 
+// Smooth image loading
+document.addEventListener('DOMContentLoaded', () => {
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+        img.addEventListener('load', () => {
+            img.classList.add('loaded');
+        });
+        if (img.complete) {
+            img.classList.add('loaded');
+        }
+    });
+});
+
+// Parallax effect for hero section
+const hero = document.querySelector('.hero');
+if (hero) {
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const heroBackground = hero.querySelector('.hero::before');
+        if (heroBackground) {
+            heroBackground.style.transform = `translateZ(-1px) scale(2) translateY(${scrolled * 0.5}px)`;
+        }
+    });
+}
+
+// Smooth section transitions
+const sectionObserverOptions = {
+    root: null,
+    threshold: 0.1,
+    rootMargin: '0px'
+};
+
+const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+        } else {
+            entry.target.style.opacity = '0.7';
+        }
+    });
+}, sectionObserverOptions);
+
+const sectionsToObserve = document.querySelectorAll('section');
+sectionsToObserve.forEach(section => {
+    section.style.opacity = '0.7';
+    sectionObserver.observe(section);
+});
+
+// Enhanced hover effects for project cards
+const projectCards = document.querySelectorAll('.project-card');
+projectCards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = (y - centerY) / 20;
+        const rotateY = (centerX - x) / 20;
+        
+        card.style.transform = `perspective(1000px) 
+            translateZ(20px) 
+            rotateX(${rotateX}deg) 
+            rotateY(${rotateY}deg)`;
+    });
+    
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) translateZ(0) rotateX(0) rotateY(0)';
+    });
+});
+
 // Initialize everything
 document.addEventListener('DOMContentLoaded', () => {
     setupTypingAnimation();

@@ -63,6 +63,9 @@ body {
     font-weight: bold;
     letter-spacing: 1px;
     font-family: var(--font-display);
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 .btn:hover {
@@ -71,6 +74,7 @@ body {
                 0 0 30px var(--primary-color),
                 0 0 40px var(--primary-color);
     background: var(--secondary-color);
+    transform: translateY(-3px) scale(1.05);
 }
 
 /* Navigation links with neon effect */
@@ -78,6 +82,9 @@ nav a {
     color: var(--text-color);
     transition: all 0.3s ease;
     font-family: var(--font-mono);
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 nav a:hover {
@@ -95,11 +102,13 @@ nav a::after {
     background: var(--card-background);
     box-shadow: none;
     transition: all 0.3s ease;
+    transform: perspective(1000px) translateZ(0);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--neon-glow);
+    transform: perspective(1000px) translateZ(20px);
+    box-shadow: 0 15px 30px rgba(255, 23, 68, 0.2);
 }
 
 /* Form elements with neon highlights */
@@ -184,6 +193,8 @@ section {
     -webkit-backdrop-filter: blur(10px);
     border-bottom: none;
     scroll-margin-top: 60px;
+    transition: opacity 0.3s ease;
+    will-change: opacity;
 }
 
 section:nth-child(even) {
@@ -446,6 +457,9 @@ header {
     height: 100%;
     background: radial-gradient(circle at center, rgba(100, 255, 218, 0.1) 0%, transparent 70%);
     z-index: 0;
+    transform: translateZ(-1px) scale(2);
+    transform-origin: center;
+    transition: transform 0.3s ease-out;
 }
 
 .hero-content {
@@ -466,6 +480,9 @@ header {
     margin-bottom: 1.5rem;
     text-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
     font-family: var(--font-display);
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 .hero .subtitle {
@@ -601,6 +618,9 @@ a {
     position: relative;
     overflow: hidden;
     font-family: var(--font-display);
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 .btn::before {
@@ -623,6 +643,7 @@ a {
 .btn:hover {
     color: var(--text-color);
     border-color: var(--primary-color);
+    transform: translateY(-3px) scale(1.05);
 }
 
 /* Header Enhancement */
@@ -2470,4 +2491,62 @@ html {
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* GPU-accelerated animations */
+.hero h1,
+.hero .subtitle,
+.project-card,
+.nav-links a,
+.btn {
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* Smooth section transitions */
+section {
+    transition: opacity 0.3s ease;
+    will-change: opacity;
+}
+
+/* Enhanced hover effects */
+.project-card {
+    transform: perspective(1000px) translateZ(0);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.project-card:hover {
+    transform: perspective(1000px) translateZ(20px);
+    box-shadow: 0 15px 30px rgba(255, 23, 68, 0.2);
+}
+
+/* Parallax effect for hero section */
+.hero::before {
+    transform: translateZ(-1px) scale(2);
+    transform-origin: center;
+    transition: transform 0.3s ease-out;
+}
+
+/* Enhanced button animations */
+.btn {
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.btn:hover {
+    transform: translateY(-3px) scale(1.05);
+}
+
+/* Smooth image loading */
+img {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+img.loaded {
+    opacity: 1;
 }
