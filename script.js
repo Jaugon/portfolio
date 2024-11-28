@@ -454,11 +454,131 @@ projectCards.forEach(card => {
     });
 });
 
+// Interactive Smoke Effect
+class SmokeParticle {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.size = Math.random() * 10 + 2;
+        this.weight = Math.random() * 0.5 - 0.2;
+        this.directionX = Math.random() * 2 - 1;
+        this.alpha = Math.random() * 0.5 + 0.2;
+        this.speed = Math.random() * 1 + 0.2;
+    }
+
+    update(mouseX, mouseY) {
+        // Follow mouse with subtle movement
+        const dx = mouseX - this.x;
+        const dy = mouseY - this.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        
+        if (distance < 100) {
+            const angle = Math.atan2(dy, dx);
+            this.x += Math.cos(angle) * this.speed;
+            this.y += Math.sin(angle) * this.speed;
+        }
+
+        this.y += this.weight;
+        this.x += this.directionX;
+        
+        if (this.size >= 0.3) this.size -= 0.05;
+        if (this.alpha >= 0.03) this.alpha -= 0.005;
+    }
+
+    draw(ctx) {
+        ctx.save();
+        ctx.globalAlpha = this.alpha;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = '#ff1744';
+        ctx.fill();
+        ctx.restore();
+    }
+}
+
+function initSmokeEffect() {
+    const canvas = document.getElementById('smokeCanvas');
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let mouseX = 0;
+    let mouseY = 0;
+    let animationFrame;
+
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+
+    function createParticles(x, y) {
+        const particlesToCreate = 3;
+        for (let i = 0; i < particlesToCreate; i++) {
+            particles.push(new SmokeParticle(x, y));
+        }
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // Create particles at mouse position
+        if (Math.random() < 0.3) {
+            createParticles(mouseX, mouseY);
+        }
+
+        // Update and draw particles
+        particles.forEach((particle, index) => {
+            particle.update(mouseX, mouseY);
+            particle.draw(ctx);
+            
+            // Remove particles that are too small or transparent
+            if (particle.size <= 0.3 || particle.alpha <= 0.03) {
+                particles.splice(index, 1);
+            }
+        });
+
+        // Limit number of particles
+        if (particles.length > 100) {
+            particles = particles.slice(-100);
+        }
+
+        animationFrame = requestAnimationFrame(animate);
+    }
+
+    // Event listeners
+    window.addEventListener('resize', resizeCanvas);
+    
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+
+    // Touch support
+    document.addEventListener('touchmove', (e) => {
+        e.preventDefault();
+        mouseX = e.touches[0].clientX;
+        mouseY = e.touches[0].clientY;
+    }, { passive: false });
+
+    // Initialize
+    resizeCanvas();
+    animate();
+
+    // Cleanup function
+    return () => {
+        if (animationFrame) {
+            cancelAnimationFrame(animationFrame);
+        }
+        particles = [];
+    };
+}
+
 // Initialize everything
 document.addEventListener('DOMContentLoaded', () => {
     setupTypingAnimation();
     initScrollAnimations();
     initFloatingNav();
+    initSmokeEffect();
     initContactForm();
     initModernScrolling();
     animateSkillBars();
