@@ -116,28 +116,42 @@ function initFloatingNav() {
 }
 
 // Smooth scroll for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', (e) => {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
+        const targetId = link.getAttribute('href').substring(1);
+        
+        if (targetId === 'home') {
+            window.scrollTo({
+                top: 0,
                 behavior: 'smooth'
             });
+        } else {
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            }
         }
     });
 });
 
 // Scroll indicator functionality
 function scrollToNextSection(currentSectionId) {
-    const sections = Array.from(document.querySelectorAll('section'));
-    const currentIndex = sections.findIndex(section => section.id === currentSectionId);
-    const nextSection = sections[currentIndex + 1];
-    
-    if (nextSection) {
-        nextSection.scrollIntoView({
-            behavior: 'smooth'
-        });
+    if (currentSectionId === 'home') {
+        const aboutSection = document.getElementById('about');
+        if (aboutSection) {
+            aboutSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    } else {
+        const sections = Array.from(document.querySelectorAll('section'));
+        const currentIndex = sections.findIndex(section => section.id === currentSectionId);
+        const nextSection = sections[currentIndex + 1];
+        
+        if (nextSection) {
+            nextSection.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
     }
 }
 

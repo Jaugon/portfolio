@@ -414,19 +414,52 @@ section {
     scroll-margin-top: 70px;
 }
 
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    height: 70px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
 #home {
-    padding-top: 70px;
-    height: 100vh; /* Changed from min-height to exact height */
+    min-height: unset;
+    height: calc(100vh - 70px);
+    margin-top: 70px;
+    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    scroll-margin-top: 0; /* Reset scroll margin */
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    position: relative;
+.hero-content {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+#about {
+    margin-top: 0;
+    padding-top: 2rem;
 }
 
 /* Style updates for modern tech look */
@@ -471,13 +504,13 @@ header {
     align-items: center;
     justify-content: center;
     height: 100%;
-    gap: 2rem; /* Consistent spacing between elements */
+    gap: 1.5rem;
 }
 
 .hero h1 {
     color: var(--primary-color);
     font-size: 4rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.8rem; /* Reduced margin */
     text-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
     font-family: var(--font-display);
     will-change: transform;
@@ -488,7 +521,7 @@ header {
 .hero .subtitle {
     color: var(--text-color);
     font-size: 1.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 0.8rem; /* Reduced margin */
     opacity: 0.9;
     line-height: 1.5;
     margin: 0;
@@ -721,19 +754,19 @@ nav a:hover {
     align-items: center;
     justify-content: center;
     height: 100%;
-    gap: 2rem; /* Consistent spacing between elements */
+    gap: 1.5rem;
 }
 
 .hero h1 {
     font-size: 4rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.8rem; /* Reduced margin */
     color: var(--primary-color);
     font-family: var(--font-display);
 }
 
 .hero .subtitle {
     font-size: 1.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 0.8rem; /* Reduced margin */
     color: var(--text-color);
     opacity: 0.9;
     line-height: 1.5;
@@ -822,10 +855,11 @@ section {
 
 #home {
     padding-top: 70px;
-    height: 100vh; /* Changed from min-height to exact height */
+    height: 85vh; /* Changed from min-height to exact height */
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0; /* Remove padding */
 }
 
 .container {
@@ -874,7 +908,7 @@ h2 {
     display: flex;
     justify-content: center;
     gap: 1.5rem;
-    margin-top: 2rem;
+    margin-top: 0.8rem; /* Reduced margin */
     position: relative;
 }
 
@@ -1757,7 +1791,7 @@ section:first-of-type {
 
 #home {
     position: relative;
-    height: 100vh; /* Changed from min-height to exact height */
+    height: 85vh; /* Changed from min-height to exact height */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1790,7 +1824,7 @@ section:first-of-type {
 }
 
 .social-links {
-    margin-top: 2rem;
+    margin-top: 0.8rem; /* Reduced margin */
     margin-bottom: 4rem;
 }
 
@@ -2561,7 +2595,7 @@ img.loaded {
 
 #home {
     position: relative;
-    height: 100vh; /* Changed from min-height to exact height */
+    height: 85vh; /* Changed from min-height to exact height */
     overflow: hidden;
 }
 
@@ -2604,4 +2638,9 @@ img.loaded {
     50% {
         transform: translateX(-50%) translateY(-10px);
     }
+}
+
+/* Other sections keep their scroll margin */
+section:not(#home) {
+    scroll-margin-top: 70px;
 }
