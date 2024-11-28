@@ -1,3 +1,5 @@
 - apartados certificaciones --> falta arreglar los headers y añadir menu dropdown para que en about
 salgan las certificaciones y en projects salgan los proyectos que toque
-- cambio de color entre sección que no sea de golpe si no algo más gradual con mismos colores (se lía con el css y el gradiant)
+- github pages en un futuro
+- hosting en s3 + lambda para gestionar los contact forms
+- poner todas las images en git (quitar del ignore)
