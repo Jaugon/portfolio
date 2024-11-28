@@ -1,10 +1,44 @@
 // Typing animation
-const typed = new Typed('.typing-text', {
-    strings: ['Hello, I\'m Jaugon', 'I\'m a Data Engineer', 'I Build Solutions', 'I\'m always learning'],
-    typeSpeed: 100,
-    backSpeed: 60,
-    loop: true
-});
+function setupTypingAnimation() {
+    const typingText = document.querySelector('.typing-text');
+    const words = ['Hi, I\'m Jaugon', 'Welcome to my portfolio', 'I\'m a Data Engineer', 'I Build Solutions'];
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let isWaiting = false;
+
+    function type() {
+        const currentWord = words[wordIndex];
+        
+        if (isDeleting) {
+            // Deleting text
+            typingText.textContent = currentWord.substring(0, charIndex - 1);
+            charIndex--;
+        } else {
+            // Typing text
+            typingText.textContent = currentWord.substring(0, charIndex + 1);
+            charIndex++;
+        }
+
+        // Speed control
+        let typeSpeed = isDeleting ? 50 : 100;
+
+        // If word is complete
+        if (!isDeleting && charIndex === currentWord.length) {
+            typeSpeed = 2000; // Pause at end of word
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            wordIndex = (wordIndex + 1) % words.length;
+            typeSpeed = 500; // Pause before starting new word
+        }
+
+        setTimeout(type, typeSpeed);
+    }
+
+    // Start the animation
+    type();
+}
 
 // Initialize AOS
 AOS.init({
@@ -349,6 +383,7 @@ const initModernScrolling = () => {
 
 // Initialize everything
 document.addEventListener('DOMContentLoaded', () => {
+    setupTypingAnimation();
     initScrollAnimations();
     initFloatingNav();
     initContactForm();
