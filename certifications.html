@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Certifications - Jaugon</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Arial:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="certifications.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;700&family=Outfit:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
 </head>
-<body>
+<body class="certifications-page">
+    <div class="scroll-progress"></div>
     <nav>
         <a href="index.html" class="logo">Jaugon</a>
         <div class="nav-links">
@@ -29,9 +32,12 @@
     
     <main>
         <section class="certifications-hero section">
+            <canvas id="smokeCanvas"></canvas>
             <div class="container">
-                <h1 data-aos="fade-up">My Certifications</h1>
-                <p class="subtitle" data-aos="fade-up" data-aos-delay="100">A comprehensive list of my technical certifications</p>
+                <div class="hero-content">
+                    <h1 data-aos="fade-up">My Certifications</h1>
+                    <p class="subtitle" data-aos="fade-up" data-aos-delay="100">A comprehensive list of my technical certifications</p>
+                </div>
             </div>
         </section>
 
@@ -68,13 +74,27 @@
         </section>
     </main>
 
+    <button id="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <footer>
         <div class="footer-content">
-            <p>&copy; 2023 Jaugon. All rights reserved.</p>
+            <div class="footer-social">
+                <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/yourusername" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:your.email@example.com" aria-label="Send email"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p class="footer-copyright">&copy; 2024 Jaugon. All rights reserved.</p>
         </div>
     </footer>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="particles.js"></script>
+    <script src="script.js"></script>
     <script>
         AOS.init({
             duration: 800,
