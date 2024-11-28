@@ -115,7 +115,7 @@ function initFloatingNav() {
     });
 }
 
-// Smooth scroll for navigation links
+// Navigation click handler
 document.querySelectorAll('nav a').forEach(link => {
     link.addEventListener('click', (e) => {
         e.preventDefault();
@@ -129,7 +129,12 @@ document.querySelectorAll('nav a').forEach(link => {
         } else {
             const targetSection = document.getElementById(targetId);
             if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
+                const offset = 0; // Start with no offset
+                const targetPosition = targetSection.offsetTop - offset;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
             }
         }
     });
@@ -140,7 +145,12 @@ function scrollToNextSection(currentSectionId) {
     if (currentSectionId === 'home') {
         const aboutSection = document.getElementById('about');
         if (aboutSection) {
-            aboutSection.scrollIntoView({ behavior: 'smooth' });
+            const offset = 0;
+            const targetPosition = aboutSection.offsetTop - offset;
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
         }
     } else {
         const sections = Array.from(document.querySelectorAll('section'));
@@ -148,7 +158,10 @@ function scrollToNextSection(currentSectionId) {
         const nextSection = sections[currentIndex + 1];
         
         if (nextSection) {
-            nextSection.scrollIntoView({
+            const offset = 0;
+            const targetPosition = nextSection.offsetTop - offset;
+            window.scrollTo({
+                top: targetPosition,
                 behavior: 'smooth'
             });
         }
