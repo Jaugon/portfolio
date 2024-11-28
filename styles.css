@@ -2655,3 +2655,52 @@ section:not(#home) {
     padding: 0;
     scroll-margin-top: 0; /* Keep home section as is */
 }
+
+/* Modern section transitions */
+section:not(#home) {
+    position: relative;
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(10, 10, 10, 1) 50%,
+        rgba(0, 0, 0, 1) 100%
+    );
+    z-index: 1;
+}
+
+section:not(#home)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    background: linear-gradient(
+        180deg,
+        rgba(255, 23, 68, 0.03) 0%,
+        transparent 100%
+    );
+    pointer-events: none;
+    z-index: -1;
+}
+
+section:not(#home)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    background: linear-gradient(
+        0deg,
+        rgba(255, 23, 68, 0.03) 0%,
+        transparent 100%
+    );
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Keep home section clean and simple */
+#home {
+    background: rgba(0, 0, 0, 1);
+}
