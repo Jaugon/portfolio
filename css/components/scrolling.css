@@ -1,0 +1,259 @@
+/* Modern minimal scrollbar */
+:root {
+    --scrollbar-width: 5px;
+    --scrollbar-color: rgba(255, 23, 68, 0.3);
+    --scrollbar-hover-color: rgba(255, 23, 68, 0.5);
+    --scrollbar-track-color: transparent;
+    --progress-color: #ff1744;
+}
+
+/* Firefox scrollbar */
+* {
+    scrollbar-width: thin !important;
+    scrollbar-color: var(--scrollbar-color) var(--scrollbar-track-color) !important;
+}
+
+/* Chrome/Safari/Edge scrollbar */
+::-webkit-scrollbar {
+    width: var(--scrollbar-width) !important;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--scrollbar-track-color) !important;
+    border: none !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-color) !important;
+    border-radius: 10px !important;
+    border: none !important;
+    transition: background-color 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--scrollbar-hover-color) !important;
+}
+
+/* Hide scrollbar corner */
+::-webkit-scrollbar-corner {
+    background: transparent !important;
+}
+
+/* Scroll Down Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    color: var(--primary-color);
+    text-shadow: 0 0 10px var(--primary-color);
+    font-size: 2rem;
+    z-index: 10;
+    animation: bounce 2s infinite;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.scroll-indicator:hover {
+    opacity: 1;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: rgba(255, 23, 68, 0.1);
+    color: var(--primary-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 23, 68, 0.2);
+    z-index: 1000;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: rgba(255, 23, 68, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(255, 23, 68, 0.3);
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    .back-to-top {
+        bottom: 1rem;
+        right: 1rem;
+        width: 35px;
+        height: 35px;
+    }
+}
+
+/* Modern Scroll Progress Indicator */
+body > .scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--progress-color) 50%,
+        transparent
+    );
+    z-index: 9999;
+    pointer-events: none;
+    transition: width 0.2s ease;
+    box-shadow: 0 0 10px rgba(255, 0, 68, 0.3);
+    opacity: 1;
+/* Modern minimal scrollbar */
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+    border: none;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 23, 68, 0.7);
+    border-radius: 20px;
+    border: none;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 23, 68, 1);
+}
+
+/* Hide scrollbar buttons and corner */
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-corner {
+    display: none !important;
+}
+
+/* Firefox scrollbar */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 23, 68, 0.7) transparent;
+}
+
+body {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 23, 68, 0.7) transparent;
+}
+
+/* Modern Scroll Progress Indicator */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    z-index: 1001;
+    transition: width 0.1s ease;
+    box-shadow: 0 0 10px var(--glow-color);
+}
+
+/* Scroll Down Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    color: var(--primary-color);
+    text-shadow: 0 0 10px var(--primary-color);
+    font-size: 2rem;
+    z-index: 10;
+    animation: bounce 2s infinite;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.scroll-indicator:hover {
+    opacity: 1;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: rgba(255, 23, 68, 0.1);
+    color: var(--primary-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 23, 68, 0.2);
+    z-index: 1000;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: rgba(255, 23, 68, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(255, 23, 68, 0.3);
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    .back-to-top {
+        bottom: 1rem;
+        right: 1rem;
+        width: 35px;
+        height: 35px;
+    }
+}
