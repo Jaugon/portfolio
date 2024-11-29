@@ -37,6 +37,3 @@ images/*
 *.ico
 *.svg
 *.webp
-
-# Keep specific images if needed
-# !images/logo.png
