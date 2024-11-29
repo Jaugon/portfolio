@@ -26,14 +26,3 @@ build/
 
 # Log files
 *.log
-
-# Images and media files
-images/*
-!images/.gitkeep
-*.jpg
-*.jpeg
-*.png
-*.gif
-*.ico
-*.svg
-*.webp
