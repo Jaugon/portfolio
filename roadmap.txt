@@ -1,7 +1,0 @@
-- apartados certificaciones --> falta arreglar los headers y añadir menu dropdown para que en about
-salgan las certificaciones y en projects salgan los proyectos que toque
-- poner todas las images en git (quitar del ignore)
-- debería haber un hero.css por cada pagina? o solo el de index?
--
-- github pages en un futuro
-- hosting en s3 + lambda para gestionar los contact forms
