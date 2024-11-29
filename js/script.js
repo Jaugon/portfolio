@@ -120,53 +120,15 @@ document.querySelectorAll('nav a').forEach(link => {
     link.addEventListener('click', (e) => {
         e.preventDefault();
         const targetId = link.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetId);
         
-        if (targetId === 'home') {
-            window.scrollTo({
-                top: 0,
+        if (targetSection) {
+            targetSection.scrollIntoView({
                 behavior: 'smooth'
             });
-        } else {
-            const targetSection = document.getElementById(targetId);
-            if (targetSection) {
-                const offset = 0; // Start with no offset
-                const targetPosition = targetSection.offsetTop - offset;
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
         }
     });
 });
-
-// Scroll indicator functionality
-function scrollToNextSection(currentSectionId) {
-    if (currentSectionId === 'home') {
-        const aboutSection = document.getElementById('about');
-        if (aboutSection) {
-            const offset = 0;
-            const targetPosition = aboutSection.offsetTop - offset;
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
-        }
-    } else {
-        const sections = Array.from(document.querySelectorAll('section'));
-        const currentIndex = sections.findIndex(section => section.id === currentSectionId);
-        const nextSection = sections[currentIndex + 1];
-        
-        if (nextSection) {
-            const offset = 0;
-            const targetPosition = nextSection.offsetTop - offset;
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
-        }
-    }
-}
 
 // Enhanced Contact Form with validation
 function initContactForm() {
@@ -303,63 +265,29 @@ window.addEventListener('scroll', () => {
     requestAnimationFrame(updateActiveNavItem);
 });
 
-// Update active state on page load
-window.addEventListener('load', updateActiveNavItem);
-
-// Update active state when clicking navigation links
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        // Only handle active states for hash links (section navigation)
-        if (link.getAttribute('href').startsWith('#')) {
-            document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
-            link.classList.add('active');
-        }
-    });
-});
-
 // Animate skill bars when they come into view
-const animateSkillBars = () => {
-    const skillItems = document.querySelectorAll('.skill-item');
+function animateSkillBars() {
+    const skillBars = document.querySelectorAll('.skill-bar');
     
+    const animateBar = (bar) => {
+        const progress = bar.getAttribute('data-progress');
+        bar.style.width = progress + '%';
+    };
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const level = entry.target.dataset.level;
-                const bar = entry.target.querySelector('.skill-level');
-                setTimeout(() => {
-                    bar.style.width = level;
-                }, 200); // Small delay for better visual effect
+                animateBar(entry.target);
+                observer.unobserve(entry.target);
             }
         });
     }, { threshold: 0.5 });
 
-    skillItems.forEach(item => observer.observe(item));
-};
-
-// Back to top button functionality
-const backToTopButton = document.getElementById('back-to-top');
-
-if (backToTopButton) {
-    // Show button when scrolling down
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            backToTopButton.classList.add('visible');
-        } else {
-            backToTopButton.classList.remove('visible');
-        }
-    });
-
-    // Smooth scroll to top when clicked
-    backToTopButton.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
+    skillBars.forEach(bar => observer.observe(bar));
 }
 
 // Modern scroll and navigation handling
-const initModernScrolling = () => {
+function initModernScrolling() {
     const progressBar = document.querySelector('.scroll-progress');
     const nav = document.querySelector('nav');
     const sections = document.querySelectorAll('section');

@@ -1,31 +1,133 @@
 /* Footer */
 footer {
     background: var(--background-color);
-    padding: 2rem 0;
-    text-align: center;
+    padding: 4rem 0 2rem;
+    position: relative;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.footer-content {
-    max-width: 600px;
-    margin: 0 auto;
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 3rem;
 }
 
+/* Brand Section */
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer-logo {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+}
+
+.footer-tagline {
+    color: var(--soft-text-color);
+    font-size: 1rem;
+    margin: 0.5rem 0 1rem;
+}
+
+/* Social Links */
 .footer-social {
     display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-bottom: 1rem;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
 }
 
 .footer-social a {
     color: var(--text-color);
-    font-size: 1.5rem;
-    transition: var(--transition);
+    font-size: 1.25rem;
+    transition: all 0.3s ease;
+    padding: 0.5rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
 }
 
 .footer-social a:hover {
     color: var(--primary-color);
     transform: translateY(-3px);
+    background: rgba(255, 23, 68, 0.1);
+}
+
+/* Quick Links */
+.footer-links h3,
+.footer-contact h3 {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    font-family: var(--font-display);
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+    color: var(--soft-text-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    position: relative;
+}
+
+.footer-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+}
+
+.footer-links a:hover::after {
+    width: 100%;
+}
+
+/* Contact Info */
+.footer-contact p {
+    color: var(--soft-text-color);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.footer-contact i {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+/* Bottom Section */
+.footer-bottom {
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
 }
 
 .footer-copyright {
@@ -33,43 +135,39 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Back to Top Button */
-#back-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: var(--primary-color);
-    color: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    opacity: 0;
-    visibility: hidden;
-    transition: var(--transition);
-    border: none;
+.footer-copyright i {
+    color: var(--primary-color);
+    margin: 0 0.25rem;
 }
 
-#back-to-top.visible {
-    opacity: 1;
-    visibility: visible;
-}
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    footer {
+        padding: 3rem 0 2rem;
+    }
 
-#back-to-top:hover {
-    background: var(--secondary-color);
-    transform: translateY(-3px);
-}
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
 
-/* Scroll Progress Bar */
-.scroll-progress {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--primary-color);
-    z-index: calc(var(--z-nav) + 1);
+    .footer-brand {
+        align-items: center;
+    }
+
+    .footer-social {
+        justify-content: center;
+    }
+
+    .footer-links ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem 2rem;
+    }
+
+    .footer-contact p {
+        justify-content: center;
+    }
 }

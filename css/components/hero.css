@@ -88,18 +88,13 @@
     line-height: inherit;
 }
 
-.scroll-indicator {
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    cursor: pointer;
-    animation: bounce 2s infinite;
-    color: var(--primary-color);
-    text-shadow: var(--neon-text-glow);
-    font-size: 2rem;
-    z-index: 10;
-    margin-top: auto;
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
 }
 
 /* Social Links */
@@ -139,15 +134,19 @@
     .hero .subtitle {
         font-size: 1.2rem;
     }
+
+    .hero {
+        padding: 0 1rem;
+    }
+
+    .hero .typing-container {
+        height: 3rem;
+    }
 }
 
 @media screen and (max-width: 480px) {
     .hero h1,
     .hero .typing-text {
         font-size: 2rem;
-    }
-
-    .hero {
-        padding: 0 1rem;
     }
 }
