@@ -1,6 +1,6 @@
 class ParticleSystem {
     constructor() {
-        this.container = document.querySelector('#home');
+        this.container = document.querySelector('#particles-container');
         this.mouse = { x: 0, y: 0 };
         this.particlesData = [];
         this.shootingStars = [];
