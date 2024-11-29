@@ -31,15 +31,21 @@ export function initFloatingNav() {
 export function initNavigation() {
     document.querySelectorAll('nav a').forEach(link => {
         link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = link.getAttribute('href').substring(1);
-            const targetSection = document.getElementById(targetId);
+            const href = link.getAttribute('href');
             
-            if (targetSection) {
-                targetSection.scrollIntoView({
-                    behavior: 'smooth'
-                });
+            // Si el enlace comienza con #, es una navegación interna
+            if (href.startsWith('#')) {
+                e.preventDefault();
+                const targetId = href.substring(1);
+                const targetSection = document.getElementById(targetId);
+                
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             }
+            // Si no comienza con #, permitir el comportamiento por defecto (navegación normal)
         });
     });
 }
