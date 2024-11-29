@@ -62,15 +62,27 @@ h2 {
     margin-bottom: 2.5rem;
     text-align: center;
     position: relative;
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 0.5rem;
+}
+
+h2 i {
+    font-size: 0.9em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 h2::after {
     content: '';
     position: absolute;
     bottom: -10px;
-    left: 0;
-    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
     height: 3px;
     background: var(--primary-color);
     box-shadow: var(--neon-glow);

@@ -537,4 +537,36 @@ document.addEventListener('DOMContentLoaded', () => {
     initContactForm();
     initModernScrolling();
     animateSkillBars();
+    initSmoothScroll();
 });
+
+// Smooth scroll functionality
+function initSmoothScroll() {
+    // Get all links that have a hash in their href
+    document.querySelectorAll('a[href*="#"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Only prevent default if it's an internal link (has # and starts with current page or just #)
+            const href = this.getAttribute('href');
+            const isInternalLink = href.includes('#') && (href.startsWith('#') || href.startsWith(window.location.pathname));
+            
+            if (isInternalLink) {
+                e.preventDefault();
+                
+                // If it's a link with page path (like index.html#about), extract the hash
+                const hash = href.includes('#') ? '#' + href.split('#')[1] : href;
+                const target = document.querySelector(hash);
+                
+                if (target) {
+                    // Smooth scroll to target
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Update URL without jumping
+                    window.history.pushState(null, null, hash);
+                }
+            }
+        });
+    });
+}

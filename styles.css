@@ -120,41 +120,6 @@ textarea.form-control {
     transform: translateY(-2px);
 }
 
-/* Footer */
-footer {
-    background: var(--background-color);
-    padding: 2rem 0;
-    text-align: center;
-}
-
-.footer-content {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.footer-social {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-bottom: 1rem;
-}
-
-.footer-social a {
-    color: var(--text-color);
-    font-size: 1.5rem;
-    transition: var(--transition);
-}
-
-.footer-social a:hover {
-    color: var(--primary-color);
-    transform: translateY(-3px);
-}
-
-.footer-copyright {
-    color: var(--soft-text-color);
-    font-size: 0.9rem;
-}
-
 /* Back to Top Button */
 #back-to-top {
     position: fixed;
