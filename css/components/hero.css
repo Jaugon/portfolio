@@ -2,14 +2,17 @@
 
 /* Hero Section */
 .hero {
+    height: 85vh; /* Reducimos aún más la altura */
     width: 100vw;
-    height: calc(100vh - 70px);
-    margin-top: 70px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start; /* Cambiamos a flex-start para que empiece desde arriba */
     align-items: center;
-    background: #000000;
+    background: transparent;
+    position: relative;
     overflow: hidden;
+    margin: 0;
+    padding-top: var(--nav-height); /* Movemos el padding aquí */
 }
 
 .hero-content {
@@ -17,7 +20,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 1.5rem;
+    position: relative;
+    z-index: 1;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .typing-container {
@@ -70,6 +78,47 @@
 .social-links a:hover {
     color: var(--primary-color);
     transform: translateY(-2px);
+}
+
+/* Scroll Down Button */
+.scroll-down {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scroll-down i {
+    color: var(--primary-color);
+    font-size: 2rem;
+    display: inline-block;
+    animation: float 2s ease-in-out infinite;
+    text-shadow: 0 0 10px var(--primary-color);
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.scroll-down:hover i {
+    animation-duration: 1s;
+    text-shadow: 
+        0 0 10px var(--primary-color),
+        0 0 20px var(--primary-color),
+        0 0 30px var(--primary-color);
 }
 
 /* Star Canvas */

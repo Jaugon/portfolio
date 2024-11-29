@@ -90,6 +90,7 @@ body > .scroll-progress {
 body {
     scrollbar-width: thin;
     scrollbar-color: rgba(255, 23, 68, 0.7) transparent;
+    overflow-x: hidden;
 }
 
 /* Modern Scroll Progress Indicator */
@@ -103,4 +104,24 @@ body {
     z-index: 1001;
     transition: width 0.1s ease;
     box-shadow: 0 0 10px var(--glow-color);
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 0;
+    overflow-x: hidden;
+}
+
+main {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+section {
+    scroll-margin-top: 0;
+}
+
+#home {
+    margin-top: 0;
+    scroll-margin-top: 0;
 }
