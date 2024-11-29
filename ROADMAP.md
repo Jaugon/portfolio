@@ -1,8 +1,10 @@
 # Portfolio Website Roadmap
 
 ## Alta Prioridad
-- [ ] Arreglar headers en general
-- [ ] Modularizar JavaScript
+- [ ] Arreglar header que no salta a certification
+- [ ] Modernizar nav bar? que desaparezca cuando se hace scroll
+- [ ] Modernizar about me y project sections
+- [ ] Añadir sección de experiencia
 
 ## Media Prioridad
 - [ ] Revisar estructura CSS (hero.css por página vs compartido)
