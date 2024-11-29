@@ -43,6 +43,9 @@ export function initNavigation() {
                     targetSection.scrollIntoView({
                         behavior: 'smooth'
                     });
+                    
+                    // Actualizar la URL sin recargar la página
+                    history.pushState(null, '', href);
                 }
             }
             // Si no comienza con #, permitir el comportamiento por defecto (navegación normal)
