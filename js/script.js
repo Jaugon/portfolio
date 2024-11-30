@@ -22,6 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initContactForm();
     initSmoothScroll();
     initImageLoading();
+
+    // Update active nav item on page load
+    updateActiveNavItem();
 });
 
 // Add scroll event listener for navigation updates

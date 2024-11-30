@@ -5,11 +5,34 @@ export function updateActiveNavItem() {
     let currentSectionId = '';
     const scrollPosition = window.scrollY;
 
+    // Always handle home section for main page
+    if (window.location.pathname === '/' || window.location.pathname.endsWith('index.html')) {
+        if (scrollPosition < 100) {
+            const homeSection = document.querySelector('section#home');
+            if (homeSection) {
+                currentSectionId = 'home';
+                history.replaceState(null, '', '#home');
+            }
+            
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === '#home') {
+                    item.classList.add('active');
+                }
+            });
+            return;
+        }
+    }
+
+    // Handle other sections and pages
     sections.forEach(section => {
         const sectionTop = section.offsetTop - 100;
         const sectionHeight = section.clientHeight;
         if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
             currentSectionId = section.id;
+            if (currentSectionId) {
+                history.replaceState(null, '', `#${currentSectionId}`);
+            }
         }
     });
 
