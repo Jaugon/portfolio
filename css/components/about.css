@@ -143,8 +143,21 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-.expertise-card i {
+.expertise-card i,
+.expertise-card img {
     font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.expertise-card img {
+    width: 2rem;
+    height: 2rem;
+    object-fit: contain;
+}
+
+.expertise-card span {
+    font-weight: 500;
 }
 
 .expertise-card.aws i {
@@ -153,10 +166,6 @@
 
 .expertise-card.azure i {
     color: #008AD7;
-}
-
-.expertise-card span {
-    font-weight: 500;
 }
 
 /* Skills Section */
