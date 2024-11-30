@@ -1,5 +1,5 @@
 export function initFloatingNav() {
-    const header = document.querySelector('header');
+    const navbar = document.querySelector('nav');
     let lastScroll = 0;
     let ticking = false;
     
@@ -8,15 +8,14 @@ export function initFloatingNav() {
             window.requestAnimationFrame(() => {
                 const currentScroll = window.pageYOffset;
                 
-                if (currentScroll <= 0) {
-                    header.classList.remove('floating');
-                    header.style.transform = 'translateY(0)';
-                } else if (currentScroll > lastScroll && !header.classList.contains('floating')) {
-                    header.classList.add('floating');
-                    header.style.transform = 'translateY(-100%)';
-                } else if (currentScroll < lastScroll && header.classList.contains('floating')) {
-                    header.classList.remove('floating');
-                    header.style.transform = 'translateY(0)';
+                if (currentScroll <= 100) {
+                    navbar.classList.remove('navbar-hidden');
+                } else if (currentScroll > lastScroll) {
+                    // Scroll down
+                    navbar.classList.add('navbar-hidden');
+                } else if (currentScroll < lastScroll) {
+                    // Scroll up
+                    navbar.classList.remove('navbar-hidden');
                 }
                 
                 lastScroll = currentScroll;
@@ -64,3 +63,5 @@ export function initMobileMenu() {
         });
     }
 }
+
+document.addEventListener('DOMContentLoaded', initFloatingNav);

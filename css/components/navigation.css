@@ -6,14 +6,13 @@ nav {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 1.5rem 2rem;
+    height: var(--nav-height);
     background: var(--nav-background);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     z-index: var(--z-nav);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    transition: transform 0.3s ease-in-out, backdrop-filter 0.3s ease;
+    background: rgba(var(--background-color-rgb), 0.8);
 }
 
 nav .container {
@@ -24,6 +23,10 @@ nav .container {
 }
 
 .logo {
+    position: absolute;
+    left: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
     font-family: var(--font-mono);
     font-weight: 700;
     font-size: 1.5rem;
@@ -33,19 +36,25 @@ nav .container {
 }
 
 .nav-links {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
     flex: 1;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .nav-links ul {
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 2rem;
     margin: 0;
     padding: 0;
     list-style: none;
-    justify-content: center;
-    align-items: center;
 }
 
 .nav-links a {
@@ -65,23 +74,34 @@ nav .container {
     gap: 0.5rem;
 }
 
-.nav-links a[href$=".html"]:not(.logo) {
+.nav-links a[href$=".html"]:not(.logo),
+.nav-links a.scroll-top {
     opacity: 0.85;
 }
 
-.nav-links a[href$=".html"]:not(.logo)::after {
+.nav-links a[href$=".html"]:not(.logo)::after,
+.nav-links a.scroll-top::after {
     content: "→";
     margin-left: 0.3rem;
     font-size: 0.9em;
     display: inline-block;
     transition: transform 0.3s ease;
+    visibility: visible;
+    width: 1em;
 }
 
-.nav-links a[href$=".html"]:not(.logo):hover::after {
+.nav-links a[href$=".html"].active::after,
+.nav-links a.scroll-top.active::after {
+    visibility: hidden;
+}
+
+.nav-links a[href$=".html"]:not(.logo):hover::after,
+.nav-links a.scroll-top:hover::after {
     transform: translateX(3px);
 }
 
-.nav-links a[href$=".html"]:not(.logo).active {
+.nav-links a[href$=".html"]:not(.logo).active,
+.nav-links a.scroll-top.active {
     opacity: 1;
 }
 
@@ -111,14 +131,15 @@ nav a:hover {
 
 /* Mobile menu button */
 .menu-toggle {
-    display: none;
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
     background: none;
     border: none;
     padding: 0;
     cursor: pointer;
-    width: 30px;
-    height: 20px;
-    position: relative;
+    display: none;
 }
 
 .menu-toggle span {
@@ -179,4 +200,20 @@ nav a:hover {
     body.menu-open {
         overflow: hidden;
     }
+}
+
+.navbar-hidden {
+    transform: translateY(-100%);
+    backdrop-filter: blur(0);
+}
+
+/* Scroll Behavior */
+@keyframes hideNavbar {
+    from { transform: translateY(0); }
+    to { transform: translateY(-100%); }
+}
+
+@keyframes showNavbar {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
 }

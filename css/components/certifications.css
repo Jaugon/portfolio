@@ -6,7 +6,7 @@
     align-items: center;
     background: var(--background-color);
     overflow: hidden;
-    padding: 8rem 0 6rem;
+    padding-top: var(--nav-height);
 }
 
 .hero-background {
