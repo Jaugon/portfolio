@@ -326,6 +326,60 @@
     transform: translateX(4px);
 }
 
+/* CTA Button Styles */
+.cta-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    background: var(--card-background);
+    border: 1px solid var(--primary-color);
+    border-radius: 12px;
+    color: var(--primary-color);
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.cta-button:hover {
+    background: var(--primary-color);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.cta-text {
+    font-size: 1.1rem;
+}
+
+.cta-icon {
+    display: inline-flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.cta-button:hover .cta-icon {
+    transform: translateX(5px);
+}
+
+@media (max-width: 768px) {
+    .cta-button {
+        padding: 0.875rem 1.75rem;
+    }
+    
+    .cta-text {
+        font-size: 1rem;
+    }
+}
+
+/* End CTA Button Styles */
+
 /* Responsive Design */
 @media (max-width: 1024px) {
     .about-grid {
