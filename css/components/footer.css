@@ -5,6 +5,7 @@
     position: relative;
 }
 
+/* Línea decorativa */
 .footer::before {
     content: '';
     position: absolute;
@@ -18,7 +19,7 @@
         var(--primary-color) 50%, 
         transparent 100%
     );
-    opacity: 0.2;
+    opacity: 0.15;
 }
 
 .footer-content {

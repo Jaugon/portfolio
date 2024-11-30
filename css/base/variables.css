@@ -1,10 +1,13 @@
 :root {
     /* Colors */
     --primary-color: #FF1744;  /* Rojo neón */
+    --primary-color-rgb: 255, 23, 68;  /* Valores RGB del color primario */
     --bg-color: #000000;  /* Negro puro */
+    --background: #0a0a0a;  /* Negro muy suave para el fondo */
+    --background-rgb: 10, 10, 10;  /* Valores RGB del fondo */
     --text-color: #8892b0;
     --heading-color: #ccd6f6;
-    --card-bg: #112240;
+    --card-bg: rgba(17, 17, 17, 0.5);  /* Fondo de tarjetas más sutil */
     --nav-bg: rgba(0, 0, 0, 0.85);
     
     /* Typography */
