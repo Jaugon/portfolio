@@ -58,8 +58,8 @@
 }
 
 .profile-info {
-    margin-top: 1.5rem;
     text-align: center;
+    margin-top: 2rem;
 }
 
 .profile-title {
@@ -72,12 +72,26 @@
 }
 
 .profile-subtitle {
-    font-size: 1.1rem;
-    color: var(--text-color);
-    opacity: 0.9;
+    margin-top: 1rem;
+    position: relative;
+    padding-left: 3rem;
+    text-align: left;
+}
+
+.profile-subtitle::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 2rem;
+    height: 2px;
+    background: var(--primary-color);
+    transform: translateY(-50%);
 }
 
 .profile-subtitle span {
+    font-size: 1.1rem;
+    color: var(--text-muted);
     font-weight: 500;
 }
 
@@ -162,40 +176,47 @@
 /* Skills Section */
 .skills-container {
     margin-top: 4rem;
-    text-align: center;
+}
+
+.section-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    text-align: left;
+    margin-bottom: 3rem;
+    color: var(--text-color);
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: var(--primary-color);
+    border-radius: 2px;
 }
 
 .skills-container h3.section-title,
 .certifications-preview h3.section-title {
     font-size: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     color: var(--text-color);
-    text-align: center;
-    display: inline-block;
-    position: relative;
-    padding-bottom: 1rem;
 }
 
 .skills-container h3.section-title::after,
 .certifications-preview h3.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120px;
-    height: 4px;
-    background: var(--primary-color);
-    border-radius: 4px;
-    opacity: 0.9;
+    width: 40px;
+    height: 3px;
 }
 
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    margin: 2rem auto 0;
-    max-width: 1200px;
+    margin-top: 2rem;
 }
 
 .skill-category {
@@ -259,8 +280,7 @@
     display: flex;
     justify-content: center;
     gap: 2rem;
-    margin: 2rem auto 0;
-    max-width: 800px;
+    margin: 2rem 0;
 }
 
 .cert-preview-card {
@@ -300,8 +320,6 @@
     font-weight: 500;
     text-decoration: none;
     transition: gap 0.3s ease;
-    margin-top: 2rem;
-    padding: 0.5rem 1rem;
 }
 
 .view-all-link:hover {
@@ -310,11 +328,6 @@
 
 .view-all-link i {
     font-size: 0.9rem;
-    transition: transform 0.3s ease;
-}
-
-.view-all-link:hover i {
-    transform: translateX(4px);
 }
 
 /* Responsive Design */
@@ -326,7 +339,6 @@
 
     .skills-grid {
         grid-template-columns: repeat(2, 1fr);
-        max-width: 800px;
     }
 }
 
@@ -349,13 +361,11 @@
 
     .skills-grid {
         grid-template-columns: 1fr;
-        max-width: 500px;
     }
 
     .cert-cards {
         flex-direction: column;
         align-items: center;
-        max-width: 300px;
     }
 
     .profile-image-container {
