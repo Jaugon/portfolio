@@ -1,0 +1,363 @@
+.experience-section {
+    margin: 2.5rem 0;
+    position: relative;
+    width: 100%;
+}
+
+.experience-section::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: var(--accent-color);
+    opacity: 0.3;
+}
+
+.experience-section .section-subtitle {
+    font-family: var(--font-sans);
+    font-size: 1.75rem;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    padding-left: 1.5rem;
+}
+
+.experience-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border-color);
+    max-width: 100%;
+}
+
+.experience-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--card-shadow-hover);
+}
+
+.experience-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.company-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 8px;
+    background: white;
+    padding: 8px;
+}
+
+.experience-title {
+    flex: 1;
+}
+
+.experience-title h4 {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin: 0;
+    line-height: 1.4;
+}
+
+.experience-title .duration {
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    font-weight: 500;
+}
+
+.experience-title .company {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin: 0.25rem 0 0;
+}
+
+.experience-details p {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.experience-details ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+}
+
+.experience-details li {
+    color: var(--text-color);
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.experience-details li::before {
+    content: "•";
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.experience-tech-stack {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.tech-icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.tech-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tech-icon i,
+.tech-icon img {
+    font-size: 1.5rem;
+    width: 24px;
+    height: 24px;
+    color: var(--accent-color);
+}
+
+.tech-icon span {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+    .experience-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .company-logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .experience-card {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .experience-section::before {
+        display: none;
+    }
+    
+    .experience-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .company-logo {
+        margin: 0 auto;
+    }
+
+    .experience-title {
+        text-align: center;
+    }
+
+    .experience-details {
+        padding-left: 0;
+    }
+
+    .experience-card {
+        padding: 1.5rem;
+    }
+
+    .experience-card:hover {
+        transform: translateX(0);
+    }
+}
+
+.certifications-section {
+    margin: 3rem 0 4rem;
+    position: relative;
+}
+
+.certifications-title {
+    font-size: 1.75rem;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+.certifications-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, 
+        var(--accent-color) 0%,
+        rgba(var(--accent-color-rgb), 0.3) 100%);
+    border-radius: 3px;
+}
+
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.certification-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.certification-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    padding: 1px;
+    background: linear-gradient(135deg, 
+        rgba(var(--accent-color-rgb), 0.5),
+        rgba(var(--accent-color-rgb), 0.1));
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+.certification-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 10px 20px rgba(0, 0, 0, 0.1),
+        0 0 60px rgba(var(--accent-color-rgb), 0.1);
+}
+
+.certification-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(var(--accent-color-rgb), 0.1);
+    border-radius: 12px;
+    position: relative;
+}
+
+.certification-icon i {
+    font-size: 2rem;
+    color: var(--accent-color);
+    transition: transform 0.3s ease;
+}
+
+.certification-card:hover .certification-icon i {
+    transform: scale(1.1);
+}
+
+.certification-details {
+    flex: 1;
+}
+
+.certification-details h4 {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin: 0 0 0.5rem;
+    line-height: 1.4;
+}
+
+.certification-level {
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    margin: 0 0 0.25rem;
+    font-weight: 500;
+}
+
+.certification-date {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .certifications-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+
+    .certification-card {
+        padding: 1.5rem;
+    }
+}
+
+/* Animaciones sutiles para los elementos */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.experience-card {
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+}
+
+.experience-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+/* Efecto de brillo en hover */
+.experience-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+        circle,
+        rgba(var(--accent-color-rgb), 0.1) 0%,
+        transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    mix-blend-mode: screen;
+}
+
+.experience-card:hover::after {
+    opacity: 1;
+}

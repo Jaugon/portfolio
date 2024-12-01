@@ -38,10 +38,41 @@ function updateURL(sectionId) {
         ? `${window.location.pathname}#${sectionId}`
         : window.location.pathname;
     history.replaceState(null, '', newURL);
+    updateActiveNavLink(sectionId);
+}
+
+// Función para actualizar el enlace activo en la navegación
+function updateActiveNavLink(sectionId) {
+    // Remover la clase active de todos los enlaces
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.classList.remove('active');
+    });
+
+    // Añadir la clase active al enlace correspondiente
+    if (sectionId) {
+        const activeLink = document.querySelector(`a[href="#${sectionId}"]`);
+        if (activeLink) {
+            activeLink.classList.add('active');
+        }
+    } else if (window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/')) {
+        // Si no hay sección ID y estamos en la página principal, activar Home
+        const homeLink = document.querySelector('a[href="#home"]');
+        if (homeLink) {
+            homeLink.classList.add('active');
+        }
+    }
 }
 
 // Observar todas las secciones
 document.addEventListener('DOMContentLoaded', () => {
+    // Activar el enlace Home por defecto en la página principal
+    if (window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/')) {
+        const homeLink = document.querySelector('a[href="#home"]');
+        if (homeLink) {
+            homeLink.classList.add('active');
+        }
+    }
+
     // Observar todas las secciones, incluso las que no tienen ID
     const sections = document.querySelectorAll('section');
     sections.forEach(section => {
