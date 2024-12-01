@@ -83,67 +83,57 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 2rem;
     position: relative;
     z-index: 3;
     margin-top: auto;
     margin-bottom: auto;
-}
-
-#home .typing-container {
-    width: 100%;
     text-align: center;
 }
 
-#home .typing-text {
+.hero-title {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    line-height: 1.2;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.hero-title .greeting {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: var(--text-color);
+    font-weight: normal;
+}
+
+.hero-title .name {
+    font-size: clamp(2.5rem, 5vw, 4rem);
     color: var(--primary-color);
+    font-weight: bold;
     text-shadow: 
         0 0 20px rgba(255, 23, 68, 0.3),
         0 0 40px rgba(255, 23, 68, 0.15);
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: bold;
-    font-family: var(--font-mono);
-    line-height: 1.2;
-    margin: 0;
-    display: inline;
-    position: relative;
 }
 
-#home .typing-text::after {
-    content: '|';
-    margin-left: 2px;
-    animation: blink 0.7s infinite;
+.hero-subtitle {
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    color: var(--text-secondary);
+    max-width: 600px;
+    line-height: 1.6;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards 0.2s;
 }
 
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-}
-
-#home .subtitle {
-    font-size: clamp(1.2rem, 3vw, 1.5rem);
-    color: #ffffff;
-    opacity: 0.9;
-    margin: 0;
-    text-align: center;
-}
-
-#home .social-links {
-    display: flex;
-    gap: 1.5rem;
-    justify-content: center;
-    margin-top: 2rem;
-}
-
-#home .social-links a {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 1.5rem;
-    transition: all 0.3s ease;
-}
-
-#home .social-links a:hover {
-    color: var(--primary-color);
-    transform: translateY(-2px);
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Scroll Down Button */

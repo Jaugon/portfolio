@@ -1,7 +1,11 @@
 /* About Section */
 .about {
     padding: 8rem 0;
-    background: var(--background);
+    background: linear-gradient(
+        to right,
+        var(--background) 0%,
+        var(--background-alt) 100%
+    );
     position: relative;
     overflow: hidden;
 }
