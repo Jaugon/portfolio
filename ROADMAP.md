@@ -7,12 +7,12 @@
 ## Media Prioridad
 - [ ] Adaptar pagina certifications y navbar a movil
 - [ ] Mejorar responsive design
-- [ ] Optimizar imágenes para web
 - [ ] Hosting en AWS S3
 
 ## Baja Prioridad
 - [ ] Implementar Lambda para contact forms¿?¿?
 - [ ] Añadir analytics
+- [ ] Optimizar imágenes para web
 
 ## Completado 
 - [x] Implementar hero section
