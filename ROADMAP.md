@@ -5,10 +5,10 @@
 - [ ] Mejorar legibilidad urls (borrar extensiones de ficheros y demás)
 
 ## Media Prioridad
+- [ ] Adaptar pagina certifications y navbar a movil
 - [ ] Mejorar responsive design
 - [ ] Optimizar imágenes para web
 - [ ] Hosting en AWS S3
-- [ ] Adaptar pagina certifications a movil
 
 ## Baja Prioridad
 - [ ] Implementar Lambda para contact forms¿?¿?
