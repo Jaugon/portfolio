@@ -1,6 +1,7 @@
 # Portfolio Website Roadmap
 
 ## Alta Prioridad
+- [ ] Revisar fondo hero section (como un trapecio animado raro?)
 - [ ] Configurar GitHub Pages
 - [ ] Mejorar legibilidad urls (borrar extensiones de ficheros y demás)
 
