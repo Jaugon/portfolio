@@ -1,6 +1,8 @@
 # Portfolio Website Roadmap
 
 ## Alta Prioridad
+- [ ] El icono de la web no manda a home
+- [ ] El bluesky no está bien
 - [ ] Revisar fondo hero section (como un trapecio animado raro?)
 - [ ] Configurar GitHub Pages
 - [ ] Mejorar legibilidad urls (borrar extensiones de ficheros y demás)
